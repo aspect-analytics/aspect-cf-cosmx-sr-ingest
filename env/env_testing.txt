@@ -1,0 +1,11 @@
+# Dependencies used for development only: testing, formatting & checking
+# Formatting
+black
+ruff
+# Type checking
+mypy
+# Testing
+pytest
+# Notebook testing
+nbconvert
+nbformat

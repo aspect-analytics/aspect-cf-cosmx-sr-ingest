@@ -1,0 +1,8 @@
+# Base conda environment
+# Defines the Python and Pip version used, as well as dependencies that cannot be installed via pip
+channels:
+  - conda-forge
+dependencies:
+  # Python interpreter and Pip versions
+  - pip>=22
+  - python>=3.10,<3.12

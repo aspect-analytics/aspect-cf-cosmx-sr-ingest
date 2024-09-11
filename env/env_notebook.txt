@@ -1,0 +1,4 @@
+# Dependencies required only for local notebooks
+ipython
+ipykernel
+black[jupyter]

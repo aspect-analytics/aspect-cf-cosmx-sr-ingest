@@ -1,0 +1,64 @@
+[project]
+name = "aspect-py-project-template"
+description = "Python Project Template"
+readme = "README.md"
+license = {text = "Proprietary/Confidential"}
+classifiers = [
+    "Intended Audience :: Aspect Analytics",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.10"
+# Version set by CI/CD system based on commit messages
+# Dependencies set in setup.py based on the environment in `env/`
+dynamic = [
+  "version",
+  "dependencies",
+]
+
+[build-system]
+requires = ["setuptools>=67", "wheel", "build", "aspect-py-dev-tools>=v0.0.7"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["env/env_pip_requirements.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.setuptools.package-data]
+aspect_py_project_template = ["py.typed"]
+
+[project.urls]
+Source = "https://github.com/aspect-analytics/python_project_template"
+
+
+# Tool configuration ###############################################
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+
+[tool.ruff]
+extend-select = [
+    "I001"  # isort
+]
+line-length = 88
+ignore = [
+  'E501',  # Line too long (E501)
+  'E731',  # Do not assign a lambda expression, use a def (E731)
+]
+exclude = [
+    ".git",
+    ".mypy_cache",
+    ".ruff_cache",
+]
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]

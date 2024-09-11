@@ -1,0 +1,4 @@
+# Necessary dependencies for the environment that can be installed via pip/PyPI packages
+# Try to put all dependencies in this file, and only use conda for packages that are not available on PyPI
+numpy>=1.2,<2
+molmass>=2022.12,<2024
